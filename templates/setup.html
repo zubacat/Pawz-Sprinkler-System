@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if message %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>{{ message}}</strong>
+</div>
+{% endif %}
+
+{% if localtime %}
+<div class="d-flex flex-row align-items-center justify-content-center">
+  <div class="p-2">
+    <h4 class=""> <i class="fa fa-clock-o"></i> </h4>
+  </div>
+  <div class="p-2">
+    <h4 class=""> {{ localtime }} </h4>
+  </div>
+</div>
+{% endif %}
+
+{% if localdate %}
+<div class="d-flex flex-row align-items-center justify-content-center">
+  <div class="p-2">
+    <h4 class=""> <i class="fa fa-calendar"></i> </h4>
+  </div>
+  <div class="p-2">
+    <h4 class=""> {{ localdate }} </h4>
+  </div>
+</div>
+{% endif %}
+
+<!-- <form action="setup" method="POST"> -->
+<!-- <form method="POST"> -->
+<form method="GET">
+  <div class="form-group row align-items-center">
+    <label for="zone-checkboxes" class="col-6 col-form-label">Run Which Zones?</label>
+    <div class="form-check btn-group col-2">
+      <label class="form-check-label ">
+        <input type="checkbox" name="zone1" class="form-check-input" checked> 1
+      </label>
+    </div>
+    <div class="form-check col-2">
+      <label class="form-check-label">
+        <input type="checkbox" name="zone2" class="form-check-input" checked> 2
+      </label>
+    </div>
+    <div class="form-check col-2">
+      <label class="form-check-label">
+        <input type="checkbox" name="zone3" class="form-check-input" checked> 3
+      </label>
+    </div>
+  
+    <label for="morning-run" class="col-4 col-form-label">Morning Start:</label>
+    <div class="col-4">
+      <select name="morning-run-start-hour" class="form-control">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option selected="selected">6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+      </select>  
+    </div> 
+
+    <div class="col-4">
+      <select name="morning-run-start-min" class="form-control">
+        <option>00</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option selected="selected">30</option>
+        <option>40</option>
+        <option>45</option>
+        <option>50</option>
+      </select>  
+    </div>
+
+    <label for="morning-run-time" class="col-4 col-form-label">Run time (each zone):</label>
+    <div class="col-4">
+      <select name="morning-duration" class="form-control">
+        <option>1</option>
+        <option>3</option>
+        <option>5</option>
+        <option>7</option>
+        <option>10</option>
+        <option selected="selected">12</option>
+        <option>15</option>
+        <option>18</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
+      </select>  
+    </div>
+    <label for="morning-run-time-mins" class="col-4 col-form-label">Mins</label>
+
+    <label for="evening-run" class="col-4 col-form-label">Evening Start:</label>
+    <div class="col-4">
+      <select name="evening-run-start-hour" class="form-control">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option selected="selected">20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+      </select>  
+    </div> 
+
+    <div class="col-4">
+      <select name="evening-run-start-min" class="form-control">
+        <option>00</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option selected="selected">30</option>
+        <option>40</option>
+        <option>45</option>
+        <option>50</option>
+      </select>  
+    </div> 
+
+    <label for="evening-run-time" class="col-4 col-form-label">Run time (each zone):</label>
+    <div class="col-4">
+      <select name="evening-duration" class="form-control">
+        <option>1</option>
+        <option>3</option>
+        <option>5</option>
+        <option>7</option>
+        <option>10</option>
+        <option selected="selected">12</option>
+        <option>15</option>
+        <option>18</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
+      </select>  
+    </div>
+    <label for="morning-run-time-mins" class="col-4 col-form-label">Mins</label>
+
+    <label for="zone-checkboxes" class="col-9 col-form-label">Skip If Rain Forcasted?</label>
+    <div class="form-check btn-group col-3">
+      <label class="form-check-label ">
+        <input type="checkbox" name="weather-check" class="form-check-input" checked> Yes
+      </label>
+    </div>
+
+
+  </div> 
+  <button type="submit" class="btn btn-block btn-primary">Submit</button>
+</form>
+{% endblock %}

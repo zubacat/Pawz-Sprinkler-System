@@ -1,8 +1,38 @@
-<html>
-<head>
-<link rel="stylesheet" href='/static/style.css' />
-</head>
-<body>
-<h1>Hello from a template!</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+{% if message %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>{{ message}}</strong>
+</div>
+{% endif %}
+
+{% for pin in pins %}
+{% if pins[pin].state == True %}
+
+<div class="d-flex flex-row align-items-center">
+  <div class="p-2">
+    <h2 class="">{{ pins[pin].name }}: <strong>On</strong></h2>
+  </div>
+  <div class="p-2 ml-auto">
+    <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-danger" role="button"><h3><i class="fa fa-close"></i></h3></a>
+  </div>
+</div>
+
+{% else %}
+<div class="d-flex flex-row align-items-center">
+  <div class="p-2">
+    <h2 class="">{{ pins[pin].name }}: <strong>Off</strong></h2>
+  </div>
+  <div class="p-2 ml-auto">
+    <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-success" role="button"><h3><i class="fa fa-play"></i></h3></a>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+
+
+{% endblock %}

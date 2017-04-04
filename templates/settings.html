@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if message %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>{{ message}}</strong>
+</div>
+{% endif %}
+
+{% if settings.zone1 %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-success"> Zone 1 <i class="fa fa-check"></i> </h2>
+    </div>
+  </div>
+{% else %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-danger"> Zone 1 <i class="fa fa-close"></i> </h2>
+    </div>
+  </div>
+{% endif %}
+
+{% if settings.zone2 %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-success"> Zone 2 <i class="fa fa-check"></i> </h2>
+    </div>
+  </div>
+{% else %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-danger"> Zone 2 <i class="fa fa-close"></i> </h2>
+    </div>
+  </div>
+{% endif %}
+
+{% if settings.zone3 %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-success"> Zone 3 <i class="fa fa-check"></i> </h2>
+    </div>
+  </div>
+{% else %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-danger"> Zone 3 <i class="fa fa-close"></i> </h2>
+    </div>
+  </div>
+{% endif %}
+
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2 ">
+      <h2 class=""> <i class="fa fa-sun-o"></i> {{ settings['morning-run-start-hour'] }}:{{ settings['morning-run-start-min'] }} </h2>
+    </div>
+    <div class="p-2 ">
+      <h2 class=""> <i class="fa fa-clock-o"></i> {{ settings['morning-duration'] }} mins </h2>
+    </div>
+  </div>
+
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class=""> <i class="fa fa-moon-o"></i> {{ settings['evening-run-start-hour'] }}:{{ settings['evening-run-start-min'] }} </h2>
+    </div>
+    <div class="p-2">
+      <h2 class=""> <i class="fa fa-clock-o"></i> {{ settings['evening-duration'] }} mins </h2>
+    </div>
+  </div>
+
+
+{% if settings['weather-check'] %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-success"> Skip if <i class="fa fa-tint text-primary"></i> <i class="fa fa-check"></i> </h2>
+    </div>
+  </div>
+{% else %}
+  <div class="d-flex flex-row align-items-center">
+    <div class="p-2">
+      <h2 class="text-danger"> Skip if <i class="fa fa-tint text-primary"></i> <i class="fa fa-close"></i> </h2>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}
